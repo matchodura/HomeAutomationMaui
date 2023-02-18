@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HomeAutomationMaui.Pages;
 
 namespace HomeAutomationMaui;
 
@@ -9,16 +9,16 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddTransient<Camera1>();
+        builder.Services.AddTransient<Camera2>();
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

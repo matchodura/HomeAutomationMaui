@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeAutomationMaui.Pages.Camera1"
+             Title="Camera1">
+    <WebView Source="http://192.168.0.199:8889/channel1" 
+             IsEnabled="True"/>
+    <!--<WebView Source="C:\test\stream.html" 
+             IsEnabled="True"/>-->
+
+    <!--<WebView  Margin="10,0,0,0" BindingContextChanged="WebView_BindingContextChanged"  HorizontalOptions="CenterAndExpand"
+     VerticalOptions="CenterAndExpand" HeightRequest="350"  />-->
+
+</ContentPage>

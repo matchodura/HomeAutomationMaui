@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeAutomationMaui.Pages.Camera2"
+             Title="Camera2">
+    <WebView Source="http://192.168.0.199:8889/channel2" />
+</ContentPage>
