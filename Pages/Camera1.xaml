@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomeAutomationMaui.Pages.Camera1"
              Title="Camera1">
-    <WebView Source="http://192.168.0.199:8889/channel1" 
+    <WebView Source="http://192.168.0.183:8889/channel1" 
              IsEnabled="True"/>
     <!--<WebView Source="C:\test\stream.html" 
              IsEnabled="True"/>-->

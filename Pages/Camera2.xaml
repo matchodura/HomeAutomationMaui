@@ -3,5 +3,5 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomeAutomationMaui.Pages.Camera2"
              Title="Camera2">
-    <WebView Source="http://192.168.0.199:8889/channel2" />
+    <WebView Source="http://192.168.0.183:8889/channel2" />
 </ContentPage>
