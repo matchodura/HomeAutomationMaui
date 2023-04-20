@@ -1,4 +1,5 @@
 ﻿using HomeAutomationMaui.Pages;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace HomeAutomationMaui;
 
@@ -8,6 +9,7 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
+			.UseSkiaSharp()
 			.UseMauiApp<App>()
             .ConfigureFonts(fonts =>
 			{
