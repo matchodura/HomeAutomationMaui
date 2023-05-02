@@ -21,7 +21,7 @@ public partial class Measurements : ContentPage
 
 	public async Task<List<DateTimePoint>> GetDataAsync()
 	{
-        string baseUrl = "http://192.168.0.199:9245";
+        string baseUrl = "http://192.168.0.183:8080";
 
         var httpClient = new HttpClient();
         var serviceClient = new Client(baseUrl, httpClient);

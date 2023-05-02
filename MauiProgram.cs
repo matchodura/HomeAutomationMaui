@@ -1,4 +1,6 @@
 ﻿using HomeAutomationMaui.Pages;
+using HomeAutomationMaui.Services;
+using HomeAutomationMaui.ViewModels;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace HomeAutomationMaui;
@@ -20,6 +22,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<Camera1>();
         builder.Services.AddTransient<Camera2>();
+        builder.Services.AddTransient<Rooms>();
+		builder.Services.AddSingleton<PollingService>();
+		builder.Services.AddSingleton<RoomsViewModel>();
+
 
         return builder.Build();
 	}

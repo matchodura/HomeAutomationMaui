@@ -6,5 +6,6 @@
         <ToolbarItem Text="Camera1" Clicked="Camera1Clicked"></ToolbarItem>
         <ToolbarItem Text="Camera2" Clicked="Camera2Clicked"></ToolbarItem>
         <ToolbarItem Text="Measurements" Clicked="MeasurementsClicked"></ToolbarItem>
+        <ToolbarItem Text="Rooms" Clicked="RoomsClicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
 </ContentPage>
