@@ -6,7 +6,7 @@
         public string Location { get; set; }
         public double Temperature { get; set; }
         public double Humidity { get; set; }
-        public string TimeOfMeasurement { get; set; }
+        public DateTime TimeOfMeasurement { get; set; }
 
     }
 }

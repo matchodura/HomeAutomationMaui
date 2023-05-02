@@ -5,16 +5,22 @@
              Title="{Binding Title}"
              xmlns:model="clr-namespace:HomeAutomationMaui.Models"
              xmlns:viewmodel="clr-namespace:HomeAutomationMaui.ViewModels"
-             x:DataType="viewmodel:RoomsViewModel">
-
+             x:DataType="viewmodel:RoomsViewModel"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:vms="clr-namespace:HomeAutomationMaui.ViewModels;assembly=HomeAutomationMaui">
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
+
+
+        
         <CollectionView ItemsSource="{Binding Sensors}"
-                         SelectionMode="None"
-                         Grid.ColumnSpan="2">
+                         SelectionMode="Single"
+                         Grid.ColumnSpan="2"                         
+                         SelectedItem="{Binding SelectedSensor}"                         
+                         SelectionChangedCommand="{Binding SelectionChangedCommand}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:SensorData">
                     <Grid Padding="10">
@@ -36,6 +42,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
 
         <Button Text="Get Data" 
                 Command="{Binding GetSensorDataCommand}"

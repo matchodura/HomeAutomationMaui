@@ -13,5 +13,6 @@ public partial class Rooms : ContentPage
         InitializeComponent();
 
         BindingContext = viewModel;
-    }    
+    }
+
 }
