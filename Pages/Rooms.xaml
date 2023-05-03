@@ -13,8 +13,6 @@
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-
-
         
         <CollectionView ItemsSource="{Binding Sensors}"
                          SelectionMode="Single"
@@ -34,7 +32,7 @@
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Location, StringFormat='Miejsce: {0:F2}'}"/>
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Temperature, StringFormat='T: {0:F2}'}"/>
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Humidity, StringFormat='H: {0:F2}'}"/>
-                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding TimeOfMeasurement, StringFormat='Czas: {0:F2}'}"/>
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding TimeOfMeasurementAsString, StringFormat='Czas: {0:F2}'}"/>
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>

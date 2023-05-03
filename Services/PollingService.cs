@@ -38,8 +38,8 @@ namespace HomeAutomationMaui.Services
                         Location = result.Location,
                         Humidity = result.Humidity,
                         Temperature = result.Temperature,
-                        TimeOfMeasurement = result.TimeOfMeasurement
-                        //TimeOfMeasurement = localDateTime.ToString("yyyy/MM/dd/HH:mm:ss")
+                        TimeOfMeasurement = result.TimeOfMeasurement,
+                        TimeOfMeasurementAsString = localDateTime.ToString("yyyy/MM/dd/HH:mm:ss")
                     }); 
                 }
 

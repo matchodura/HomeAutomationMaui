@@ -29,15 +29,6 @@ public partial class MainPage : ContentPage
         await Shell.Current.GoToAsync(nameof(Camera2), navigationParameters);
     }
 
-    async void MeasurementsClicked(object sender, EventArgs e)
-    {
-        var navigationParameters = new Dictionary<string, object>()
-        {
-            {"TestKey", "TestValue" }
-        };
-
-        await Shell.Current.GoToAsync(nameof(Measurements), navigationParameters);
-    }
 
     async void RoomsClicked(object sender, EventArgs e)
     {

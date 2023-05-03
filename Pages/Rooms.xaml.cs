@@ -1,7 +1,4 @@
 using HomeAutomationMaui.ViewModels;
-using LiveChartsCore.Defaults;
-using PollingServiceClient;
-using static SkiaSharp.HarfBuzz.SKShaper;
 
 namespace HomeAutomationMaui.Pages;
 

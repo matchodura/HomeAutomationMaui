@@ -1,4 +1,6 @@
-﻿using HomeAutomationMaui.Pages;
+﻿using CommunityToolkit.Maui;
+using HomeAutomationMaui.Interfaces;
+using HomeAutomationMaui.Pages;
 using HomeAutomationMaui.Services;
 using HomeAutomationMaui.ViewModels;
 using SkiaSharp.Views.Maui.Controls.Hosting;
@@ -13,6 +15,7 @@ public static class MauiProgram
 		builder
 			.UseSkiaSharp()
 			.UseMauiApp<App>()
+			.UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,8 +26,11 @@ public static class MauiProgram
         builder.Services.AddTransient<Camera1>();
         builder.Services.AddTransient<Camera2>();
         builder.Services.AddTransient<Rooms>();
+        builder.Services.AddTransient<ChartPage>();
+        builder.Services.AddTransient<IPopupService, PopupService>();
 		builder.Services.AddSingleton<PollingService>();
 		builder.Services.AddSingleton<RoomsViewModel>();
+		builder.Services.AddTransient<ChartsViewModel>();
 
 
         return builder.Build();

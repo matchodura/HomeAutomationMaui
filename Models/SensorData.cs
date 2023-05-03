@@ -7,6 +7,7 @@
         public double Temperature { get; set; }
         public double Humidity { get; set; }
         public DateTime TimeOfMeasurement { get; set; }
+        public string TimeOfMeasurementAsString { get; set; }
 
     }
 }

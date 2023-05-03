@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeAutomationMaui.Pages.ChartPage"
+             Title="ChartPage"
+             xmlns:viewmodel="clr-namespace:HomeAutomationMaui.ViewModels"
+             x:DataType="viewmodel:ChartsViewModel"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:vms="clr-namespace:HomeAutomationMaui.ViewModels;assembly=HomeAutomationMaui">
+
+    <ContentPage.BindingContext>
+        <vms:ChartsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+
+       
+            <lvc:CartesianChart 
+                Series="{Binding TemperatureSeries}"
+                XAxes="{Binding XAxes}">
+            </lvc:CartesianChart>
+
+
+            <lvc:CartesianChart 
+                Series="{Binding HumiditySeries}"
+                XAxes="{Binding XAxes}">
+            </lvc:CartesianChart>
+
+        </Grid>
+    </ContentPage.Content>  
+</ContentPage>

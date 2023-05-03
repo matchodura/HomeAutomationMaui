@@ -1,11 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using HomeAutomationMaui.Interfaces;
 using HomeAutomationMaui.Models;
+using HomeAutomationMaui.Pages;
 using HomeAutomationMaui.Services;
 using LiveChartsCore.Defaults;
-using LiveChartsCore.SkiaSharpView;
-using LiveChartsCore;
 using System.Collections.ObjectModel;
-using PollingServiceClient;
 
 namespace HomeAutomationMaui.ViewModels
 {
@@ -15,22 +14,15 @@ namespace HomeAutomationMaui.ViewModels
         public ObservableCollection<SensorData> SensorValues { get; } = new();
 
         PollingService _pollingService;
+        private readonly IPopupService _popupService;
 
         public SensorData SelectedSensor { get; set; }
 
-        public ObservableCollection<ISeries> Series { get; set; } = new();
-
-        public void SetChartValues(List<DateTimePoint> dateTimePoints)
-        {
-            Series.Add(new LineSeries<DateTimePoint>() { Values = dateTimePoints });
-        }
-
-
-
-        public RoomsViewModel(PollingService pollingService)
+        public RoomsViewModel(PollingService pollingService, IPopupService popupService)
         {
             Title = "Room Data";
             _pollingService = pollingService;
+            _popupService = popupService;          
         }
 
         [RelayCommand]
@@ -50,11 +42,8 @@ namespace HomeAutomationMaui.ViewModels
                     SensorValues.Add(result);
                 }
 
-
                 var filteredResults = results.OrderByDescending(x => x.TimeOfMeasurement).DistinctBy(x => x.Location);
-
-                
-
+                                
                 foreach(var sensor in filteredResults)
                 {
                     Sensors.Add(sensor);
@@ -73,28 +62,47 @@ namespace HomeAutomationMaui.ViewModels
 
 
         [RelayCommand]
-        public void SelectionChanged()
+        public async Task SelectionChanged()
         {
             SelectedSensor = Sensors.FirstOrDefault();
 
             var result = FilterChartValues();
+            //var chartPopup = new ChartPopup(result,"XD");
 
-            SetChartValues(result);
+            // _popupService.ShowPopup(chartPopup);
 
+            var navigationParameters = new Dictionary<string, object>()
+                                        {
+                                            {"TemperatureData", result[0] },
+                                            {"HumidityData", result[1] }
+
+                                        };
+
+            try
+            {
+                await Shell.Current.GoToAsync(nameof(ChartPage), navigationParameters);
+
+            }
+            catch (Exception ex) { }
         }
 
-        private List<DateTimePoint> FilterChartValues()
+        private List<List<DateTimePoint>> FilterChartValues()
         {
 
             var sensorToCheck = SelectedSensor.SensorName;
 
             var valuesToCheck = SensorValues.Where(x=>x.SensorName == sensorToCheck).ToList();
 
-            var results = new List<DateTimePoint>();
+
+            var temperaturePoints = new List<DateTimePoint>();
+            var humidityPoints = new List<DateTimePoint>();
             foreach (var res in valuesToCheck)
             {
-                results.Add(new DateTimePoint(Convert.ToDateTime(res.TimeOfMeasurement), res.Temperature));
+                temperaturePoints.Add(new DateTimePoint(res.TimeOfMeasurement, res.Temperature));
+                humidityPoints.Add(new DateTimePoint(res.TimeOfMeasurement, res.Humidity));
             }
+
+            var results = new List<List<DateTimePoint>>() { temperaturePoints, humidityPoints };    
 
             return results;
         }
