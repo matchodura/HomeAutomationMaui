@@ -64,7 +64,7 @@ namespace HomeAutomationMaui.ViewModels
         [RelayCommand]
         public async Task SelectionChanged()
         {
-            SelectedSensor = Sensors.FirstOrDefault();
+            //SelectedSensor = Sensors.FirstOrDefault();
 
             var result = FilterChartValues();
             //var chartPopup = new ChartPopup(result,"XD");
@@ -89,9 +89,9 @@ namespace HomeAutomationMaui.ViewModels
         private List<List<DateTimePoint>> FilterChartValues()
         {
 
-            var sensorToCheck = SelectedSensor.SensorName;
+            var sensorToCheck = SelectedSensor.Location;
 
-            var valuesToCheck = SensorValues.Where(x=>x.SensorName == sensorToCheck).ToList();
+            var valuesToCheck = SensorValues.Where(x => x.Location == sensorToCheck).ToList();
 
 
             var temperaturePoints = new List<DateTimePoint>();
