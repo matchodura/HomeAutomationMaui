@@ -12,22 +12,22 @@
         <vms:ChartsViewModel/>
     </ContentPage.BindingContext>
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />      
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <HorizontalStackLayout>
-            <Button Command="{Binding GoTo30daysCommand}" Text="30 days"></Button>
-            <Button Command="{Binding GoTo7daysCommand}" Text="7 days"></Button>
-            <Button Command="{Binding GoTo3daysCommand}" Text="3 days"></Button>
-            <Button Command="{Binding GoTo1dayCommand}" Text="1 day"></Button> 
-            <Button Command="{Binding GoTo12hoursCommand}" Text="12 hours"></Button> 
-            <Button Command="{Binding GoTo6hoursCommand}" Text="6 hours"></Button> 
-            <Button Command="{Binding GoTo3hoursCommand}" Text="3 hours"></Button> 
+        <HorizontalStackLayout >
+            <Button Command="{Binding GoTo30daysCommand}" Text="30d"></Button>
+            <Button Command="{Binding GoTo7daysCommand}" Text="7d"></Button>
+            <Button Command="{Binding GoTo3daysCommand}" Text="3d"></Button>
+            <Button Command="{Binding GoTo1dayCommand}" Text="1d"></Button> 
+            <Button Command="{Binding GoTo12hoursCommand}" Text="12h"></Button> 
+            <Button Command="{Binding GoTo6hoursCommand}" Text="6h"></Button> 
+            <Button Command="{Binding GoTo3hoursCommand}" Text="3h"></Button> 
             <Button Command="{Binding SeeAllCommand}" Text="All"></Button>
         </HorizontalStackLayout>
      

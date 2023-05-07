@@ -5,38 +5,54 @@
              Title="{Binding Title}"
              xmlns:model="clr-namespace:HomeAutomationMaui.Models"
              xmlns:viewmodel="clr-namespace:HomeAutomationMaui.ViewModels"
-             x:DataType="viewmodel:SensorsViewModel"
-             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
-             xmlns:vms="clr-namespace:HomeAutomationMaui.ViewModels;assembly=HomeAutomationMaui">
+             xmlns:converters="clr-namespace:HomeAutomationMaui.Converters"
+             x:DataType="viewmodel:SensorsViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ValueToVisibilityConverter x:Key="ValueToVisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
-        RowSpacing="0">
-        
+        RowSpacing="0">        
         <CollectionView ItemsSource="{Binding Sensors}"
                          SelectionMode="Single"
                          Grid.ColumnSpan="2"                         
                          SelectedItem="{Binding SelectedSensor}"                         
                          SelectionChangedCommand="{Binding SelectionChangedCommand}">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:SensorData">
+                <DataTemplate x:DataType="{x:Type model:SensorData}">
                     <Grid Padding="10">
-                        <Frame HeightRequest="150" Style="{StaticResource CardView}">
-                            <Grid Padding="0" ColumnDefinitions="125,*">
+                        <Border Stroke="#C49B33"
+                                    StrokeThickness="4"
+                                    StrokeShape="RoundRectangle 40,40,40,40"
+                                    Background="#FF0000"
+                                    Padding="0,0"
+                                    HorizontalOptions="Center">
+                            <Grid Padding="0" ColumnDefinitions="125">
                                 <VerticalStackLayout
-                                    Grid.Column="1"
+                                    Grid.Column="0"
                                     VerticalOptions="Center"
-                                    Padding="10">                                    
-                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding SensorName, StringFormat='Nazwa: {0:F2}'}"/>
-                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding Location, StringFormat='Miejsce: {0:F2}'}"/>
+                                    Padding="10">                                   
+                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding Location, StringFormat='Miejsce: {0:F2}'}"/>
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding SensorName, StringFormat='Nazwa: {0:F2}'}"/>
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Temperature, StringFormat='T: {0:F2}'}"/>
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Humidity, StringFormat='H: {0:F2}'}"/>
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Pressure, StringFormat='P: {0:F2}'}" IsVisible="{Binding Pressure, Converter={StaticResource ValueToVisibilityConverter}}" />
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding TimeOfMeasurementAsString, StringFormat='Czas: {0:F2}'}"/>
                                 </VerticalStackLayout>
                             </Grid>
-                        </Frame>
+                        </Border>
+
+
+
+                        <!--<Border HeightRequest="150" Style="{StaticResource CardView}">
+    
+                        </Border>-->
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -54,11 +70,8 @@
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="Fill"
                            VerticalOptions="Center"
-			   Color="{StaticResource Primary}"
+			               Color="{StaticResource Primary}"
                            Grid.RowSpan="2"
                            Grid.ColumnSpan="2"/>
     </Grid>
-
-
-
 </ContentPage>
