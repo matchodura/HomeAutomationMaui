@@ -2,10 +2,10 @@ using HomeAutomationMaui.ViewModels;
 
 namespace HomeAutomationMaui.Pages;
 
-public partial class Rooms : ContentPage
+public partial class Sensors : ContentPage
 {
 
-    public Rooms(RoomsViewModel viewModel)
+    public Sensors(SensorsViewModel viewModel)
     {
         InitializeComponent();
 

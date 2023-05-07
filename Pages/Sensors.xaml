@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HomeAutomationMaui.Pages.Rooms"
+             x:Class="HomeAutomationMaui.Pages.Sensors"
              Title="{Binding Title}"
              xmlns:model="clr-namespace:HomeAutomationMaui.Models"
              xmlns:viewmodel="clr-namespace:HomeAutomationMaui.ViewModels"
-             x:DataType="viewmodel:RoomsViewModel"
+             x:DataType="viewmodel:SensorsViewModel"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              xmlns:vms="clr-namespace:HomeAutomationMaui.ViewModels;assembly=HomeAutomationMaui">
     <Grid
@@ -32,6 +32,7 @@
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Location, StringFormat='Miejsce: {0:F2}'}"/>
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Temperature, StringFormat='T: {0:F2}'}"/>
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Humidity, StringFormat='H: {0:F2}'}"/>
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding Pressure, StringFormat='P: {0:F2}'}" IsVisible="{Binding Pressure, Converter={StaticResource ValueToVisibilityConverter}}" />
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding TimeOfMeasurementAsString, StringFormat='Czas: {0:F2}'}"/>
                                 </VerticalStackLayout>
                             </Grid>

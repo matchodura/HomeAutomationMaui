@@ -25,11 +25,11 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<Camera1>();
         builder.Services.AddTransient<Camera2>();
-        builder.Services.AddTransient<Rooms>();
+        builder.Services.AddTransient<Sensors>();
         builder.Services.AddTransient<ChartPage>();
         builder.Services.AddTransient<IPopupService, PopupService>();
 		builder.Services.AddSingleton<PollingService>();
-		builder.Services.AddSingleton<RoomsViewModel>();
+		builder.Services.AddSingleton<SensorsViewModel>();
 		builder.Services.AddTransient<ChartsViewModel>();
 
 

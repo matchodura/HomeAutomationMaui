@@ -30,14 +30,14 @@ public partial class MainPage : ContentPage
     }
 
 
-    async void RoomsClicked(object sender, EventArgs e)
+    async void SensorsClicked(object sender, EventArgs e)
     {
         var navigationParameters = new Dictionary<string, object>()
         {
             {"TestKey", "TestValue" }
         };
 
-        await Shell.Current.GoToAsync(nameof(Rooms), navigationParameters);
+        await Shell.Current.GoToAsync(nameof(Sensors), navigationParameters);
     }
 }
 

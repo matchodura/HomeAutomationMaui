@@ -74,7 +74,7 @@
 	  <MauiXaml Update="Pages\ChartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Rooms.xaml">
+	  <MauiXaml Update="Pages\Sensors.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Popups\ChartPopup.xaml">
@@ -84,6 +84,12 @@
 
 	<ItemGroup>
 	  <Folder Include="ServiceClients\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\Sensors.xaml.cs">
+	    <DependentUpon>Sensors.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

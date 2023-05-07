@@ -5,6 +5,6 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Camera1" Clicked="Camera1Clicked"></ToolbarItem>
         <ToolbarItem Text="Camera2" Clicked="Camera2Clicked"></ToolbarItem>
-        <ToolbarItem Text="Rooms" Clicked="RoomsClicked"></ToolbarItem>
+        <ToolbarItem Text="Sensors" Clicked="SensorsClicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
 </ContentPage>

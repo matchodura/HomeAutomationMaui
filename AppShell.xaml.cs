@@ -9,7 +9,7 @@ public partial class AppShell : Shell
 		InitializeComponent();
         Routing.RegisterRoute(nameof(Camera1), typeof(Camera1));
         Routing.RegisterRoute(nameof(Camera2), typeof(Camera2));
-        Routing.RegisterRoute(nameof(Rooms), typeof(Rooms));
+        Routing.RegisterRoute(nameof(Sensors), typeof(Sensors));
         Routing.RegisterRoute(nameof(ChartPage), typeof(ChartPage));
     }
 }

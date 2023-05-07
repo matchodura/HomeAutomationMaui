@@ -24,7 +24,6 @@ namespace HomeAutomationMaui.Services
 
                 foreach (var result in data)
                 {
-
                     //todo look at this, as it doesn't seem to work correctly
                     var time = result.TimeOfMeasurement;
 
@@ -38,7 +37,8 @@ namespace HomeAutomationMaui.Services
                         Location = result.Location,
                         Humidity = result.Humidity,
                         Temperature = result.Temperature,
-                        TimeOfMeasurement = result.TimeOfMeasurement,
+                        Pressure = result.Pressure,
+                        TimeOfMeasurement = localDateTime,
                         TimeOfMeasurementAsString = localDateTime.ToString("yyyy/MM/dd/HH:mm:ss")
                     }); 
                 }

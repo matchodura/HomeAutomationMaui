@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomeAutomationMaui.Pages.ChartPage"
-             Title="ChartPage"
+             Title="{Binding SelectedSensor.Location}"
              xmlns:viewmodel="clr-namespace:HomeAutomationMaui.ViewModels"
              x:DataType="viewmodel:ChartsViewModel"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
@@ -16,22 +16,33 @@
             <ColumnDefinition Width="*" />      
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <lvc:CartesianChart Grid.Row="0"
+        <HorizontalStackLayout>
+            <Button Command="{Binding GoTo30daysCommand}" Text="30 days"></Button>
+            <Button Command="{Binding GoTo7daysCommand}" Text="7 days"></Button>
+            <Button Command="{Binding GoTo3daysCommand}" Text="3 days"></Button>
+            <Button Command="{Binding GoTo1dayCommand}" Text="1 day"></Button> 
+            <Button Command="{Binding GoTo12hoursCommand}" Text="12 hours"></Button> 
+            <Button Command="{Binding GoTo6hoursCommand}" Text="6 hours"></Button> 
+            <Button Command="{Binding GoTo3hoursCommand}" Text="3 hours"></Button> 
+            <Button Command="{Binding SeeAllCommand}" Text="All"></Button>
+        </HorizontalStackLayout>
+     
+        <lvc:CartesianChart Grid.Row="1"
                 Series="{Binding TemperatureSeries}"
                 XAxes="{Binding XAxes}">
         </lvc:CartesianChart>
-        <lvc:CartesianChart Grid.Row="1"
+        <lvc:CartesianChart Grid.Row="2"
             Series="{Binding HumiditySeries}"
             XAxes="{Binding XAxes}">
         </lvc:CartesianChart>
+        
+        <!--<lvc:CartesianChart Grid.Row="3"
+            Series="{Binding PressureSeries}"
+            XAxes="{Binding XAxes}">
+        </lvc:CartesianChart>-->
     </Grid>
-
-
-
-
-
-    
 </ContentPage>
