@@ -12,16 +12,14 @@
         <vms:ChartsViewModel/>
     </ContentPage.BindingContext>
     <Grid>
-        <!--<Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />      
-        </Grid.ColumnDefinitions>-->
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <HorizontalStackLayout >
-            <Button Command="{Binding GoTo30daysCommand}" Text="30d"></Button>
+        <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
             <Button Command="{Binding GoTo7daysCommand}" Text="7d"></Button>
             <Button Command="{Binding GoTo3daysCommand}" Text="3d"></Button>
             <Button Command="{Binding GoTo1dayCommand}" Text="1d"></Button> 
@@ -30,19 +28,19 @@
             <Button Command="{Binding GoTo3hoursCommand}" Text="3h"></Button> 
             <Button Command="{Binding SeeAllCommand}" Text="All"></Button>
         </HorizontalStackLayout>
-     
-        <lvc:CartesianChart Grid.Row="1"
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>            
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <lvc:CartesianChart Grid.Row="0"
                 Series="{Binding TemperatureSeries}"
                 XAxes="{Binding XAxes}">
-        </lvc:CartesianChart>
-        <lvc:CartesianChart Grid.Row="2"
+            </lvc:CartesianChart>
+            <lvc:CartesianChart Grid.Row="1"
             Series="{Binding HumiditySeries}"
             XAxes="{Binding XAxes}">
-        </lvc:CartesianChart>
-        
-        <!--<lvc:CartesianChart Grid.Row="3"
-            Series="{Binding PressureSeries}"
-            XAxes="{Binding XAxes}">
-        </lvc:CartesianChart>-->
+            </lvc:CartesianChart>
+        </Grid>
     </Grid>
 </ContentPage>

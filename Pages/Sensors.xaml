@@ -15,27 +15,30 @@
     </ContentPage.Resources>
     
     <Grid
-        ColumnDefinitions="*,*"
+        ColumnDefinitions="*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">        
         <CollectionView ItemsSource="{Binding Sensors}"
                          SelectionMode="Single"
-                         Grid.ColumnSpan="2"                         
-                         SelectedItem="{Binding SelectedSensor}"                         
-                         SelectionChangedCommand="{Binding SelectionChangedCommand}">
+                         SelectedItem="{Binding SelectedSensor}"                             
+                         SelectionChangedCommand="{Binding SelectionChangedCommand}" >
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type model:SensorData}">
-                    <Grid Padding="10">
+                <DataTemplate x:DataType="{x:Type model:SensorData}" >
+                    <Grid Padding="10" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*">
+                                
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
                         <Border Stroke="#C49B33"
                                     StrokeThickness="4"
-                                    StrokeShape="RoundRectangle 40,40,40,40"
                                     Background="#FF0000"
                                     Padding="0,0"
-                                    HorizontalOptions="Center">
-                            <Grid Padding="0" ColumnDefinitions="125">
-                                <VerticalStackLayout
-                                    Grid.Column="0"
+                                    HorizontalOptions="Center" 
+                                    Grid.Column="0">
+                            <Grid Padding="0">
+                                <VerticalStackLayout                                  
                                     VerticalOptions="Center"
                                     Padding="10">                                   
                                     <Label Style="{StaticResource LargeLabel}" Text="{Binding Location, StringFormat='Miejsce: {0:F2}'}"/>
@@ -62,10 +65,11 @@
         <Button Text="Get Data" 
                 Command="{Binding GetSensorDataCommand}"
                 IsEnabled="{Binding IsNotBusy}"
-                Grid.Row="1"
-                Grid.Column="0"
+                Grid.Row="1"               
                 Style="{StaticResource ButtonOutline}"
-                Margin="8"/>
+                Margin="8"
+                VerticalOptions="Fill"
+                Grid.ColumnSpan="2"/>
         <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="Fill"

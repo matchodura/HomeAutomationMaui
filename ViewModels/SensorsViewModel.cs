@@ -10,8 +10,8 @@ namespace HomeAutomationMaui.ViewModels
 {
     public partial class SensorsViewModel : BaseViewModel
     {
-        public ObservableCollection<SensorData> Sensors { get; } = new();
-        public ObservableCollection<SensorData> SensorValues { get; } = new();
+        public ObservableCollection<SensorData> Sensors { get; set; } = new();
+        public ObservableCollection<SensorData> SensorValues { get; set; } = new();
 
         PollingService _pollingService;
         private readonly IPopupService _popupService;
@@ -35,6 +35,9 @@ namespace HomeAutomationMaui.ViewModels
                 IsBusy = true;
 
                 var results = await _pollingService.GetDataAsync();
+
+                if (SensorValues.Count != 0) SensorValues.Clear();
+                if (Sensors.Count != 0) Sensors.Clear();
 
                 foreach(var result in results)
                 {                 
