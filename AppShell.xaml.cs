@@ -11,5 +11,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(Camera2), typeof(Camera2));
         Routing.RegisterRoute(nameof(Sensors), typeof(Sensors));
         Routing.RegisterRoute(nameof(ChartPage), typeof(ChartPage));
+        Routing.RegisterRoute(nameof(Alarms), typeof(Alarms));
+        Routing.RegisterRoute(nameof(ServicesState), typeof(ServicesState));
     }
 }

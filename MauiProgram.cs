@@ -31,6 +31,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton<PollingService>();
 		builder.Services.AddSingleton<SensorsViewModel>();
 		builder.Services.AddTransient<ChartsViewModel>();
+		builder.Services.AddTransient<Alarms>();
+		builder.Services.AddTransient<AlarmsViewModel>();
+		builder.Services.AddTransient<ServicesState>();
+		builder.Services.AddTransient<ServicesStateViewModel>();
 
 
         return builder.Build();

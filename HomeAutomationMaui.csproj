@@ -70,6 +70,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\Alarms.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Camera1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -80,6 +83,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Sensors.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ServicesState.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Popups\ChartPopup.xaml">
@@ -94,6 +100,9 @@
 	<ItemGroup>
 	  <Compile Update="Pages\Sensors.xaml.cs">
 	    <DependentUpon>Sensors.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ServicesState.xaml.cs">
+	    <DependentUpon>ServicesState.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 

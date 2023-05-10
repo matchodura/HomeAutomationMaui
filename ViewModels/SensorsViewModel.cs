@@ -20,7 +20,7 @@ namespace HomeAutomationMaui.ViewModels
 
         public SensorsViewModel(PollingService pollingService, IPopupService popupService)
         {
-            Title = "Sensor Data";
+            Title = "Czujniki";
             _pollingService = pollingService;
             _popupService = popupService;          
         }

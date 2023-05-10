@@ -50,12 +50,6 @@
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>
-
-
-
-                        <!--<Border HeightRequest="150" Style="{StaticResource CardView}">
-    
-                        </Border>-->
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

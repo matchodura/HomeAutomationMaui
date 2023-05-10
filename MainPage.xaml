@@ -2,9 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomeAutomationMaui.MainPage">
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Camera1" Clicked="Camera1Clicked"></ToolbarItem>
         <ToolbarItem Text="Camera2" Clicked="Camera2Clicked"></ToolbarItem>
         <ToolbarItem Text="Sensors" Clicked="SensorsClicked"></ToolbarItem>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0"
+            Text="Camera 1"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="Camera1Clicked" />
+        <Button  Grid.Row="0" Grid.Column="1"
+                 Text="Camera 2"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="Camera2Clicked" />
+        <Button  Grid.Row="1" Grid.Column="0"
+                 Text="Czujniki"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="SensorsClicked" />
+        <Button  Grid.Row="1" Grid.Column="1"
+                 Text="Alarmy"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="AlarmsClicked" />
+        <Button  Grid.Row="2" Grid.Column="0"
+                 Text="Stan serwisow"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="ServiceStateClicked" />
+        
+        <!--this is a placeholder place for colection view of rooms-->
+        
+    </Grid>
 </ContentPage>

@@ -4,9 +4,7 @@ using HomeAutomationMaui.Models;
 using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
-using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace HomeAutomationMaui.ViewModels
 {

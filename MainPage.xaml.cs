@@ -39,5 +39,24 @@ public partial class MainPage : ContentPage
 
         await Shell.Current.GoToAsync(nameof(Sensors), navigationParameters);
     }
+    async void AlarmsClicked(object sender, EventArgs e)
+    {
+        var navigationParameters = new Dictionary<string, object>()
+        {
+            {"TestKey", "TestValue" }
+        };
+
+        await Shell.Current.GoToAsync(nameof(Alarms), navigationParameters);
+    }
+
+    async void ServiceStateClicked(object sender, EventArgs e)
+    {
+        var navigationParameters = new Dictionary<string, object>()
+        {
+            {"TestKey", "TestValue" }
+        };
+
+        await Shell.Current.GoToAsync(nameof(ServicesState), navigationParameters);
+    }
 }
 
