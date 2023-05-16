@@ -1,6 +1,6 @@
 ﻿namespace HomeAutomationMaui.ViewModels
 {
-    public class ServicesStateViewModel : BaseViewModel
+    public partial class ServicesStateViewModel : BaseViewModel
     {
         public ServicesStateViewModel()
         {

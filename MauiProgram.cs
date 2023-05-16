@@ -3,6 +3,7 @@ using HomeAutomationMaui.Interfaces;
 using HomeAutomationMaui.Pages;
 using HomeAutomationMaui.Services;
 using HomeAutomationMaui.ViewModels;
+using Plugin.LocalNotification;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace HomeAutomationMaui;
@@ -16,6 +17,7 @@ public static class MauiProgram
 			.UseSkiaSharp()
 			.UseMauiApp<App>()
 			.UseMauiCommunityToolkit()
+			.UseLocalNotification()
             .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -35,6 +37,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<AlarmsViewModel>();
 		builder.Services.AddTransient<ServicesState>();
 		builder.Services.AddTransient<ServicesStateViewModel>();
+
 
 
         return builder.Build();

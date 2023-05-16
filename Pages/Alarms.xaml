@@ -8,5 +8,14 @@
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button Text="Get Data" 
+                Command="{Binding InvokeNotificationCommand}"             
+                Grid.Row="1"               
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"
+                VerticalOptions="Fill"
+                Grid.ColumnSpan="2"/>
     </VerticalStackLayout>
+
+
 </ContentPage>
